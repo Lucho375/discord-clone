@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function DirectMessages({ children }: { children: React.ReactNode }) {
   return (
     <>
-        <section className="bg-slate-800 pl-4">
+        <section className={`bg-slate-800 pl-4 flex flex-col w-[200px] h-[100%]`}>
           <h2>
             Mensajes Directos <span>+</span>
           </h2>
@@ -14,9 +14,6 @@ export default function DirectMessages({ children }: { children: React.ReactNode
             <UserChat isActive={false} />
           </ul>
         </section>
-        <main>
-            {children}
-        </main>
     </>
   )
 }
