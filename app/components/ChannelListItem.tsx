@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
-function ChannelListItem({ id, icon, name }: { id: number; icon: StaticImageData; name: string }) {
+function ChannelListItem({ id, icon, name, href }: { id: number; icon: StaticImageData; name: string; href: string }) {
   const [popoverStates, setPopoverStates] = useState<{ [key: number]: boolean }>({})
 
   const showPopover = (id: number) => {
@@ -16,7 +16,7 @@ function ChannelListItem({ id, icon, name }: { id: number; icon: StaticImageData
 
   return (
     <li className="my-1 relative" onMouseEnter={() => showPopover(id)} onMouseLeave={() => hidePopover(id)}>
-      <Link href="/channels/messages">
+      <Link href={`/channels/${href}`}>
         <Image alt="Mensajes directos" src={icon} className="rounded-full w-14" />
       </Link>
       {popoverStates[id] && (
