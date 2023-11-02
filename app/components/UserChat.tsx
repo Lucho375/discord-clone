@@ -7,7 +7,7 @@ interface Props {
 
 function UserChat({ isActive }: Props) {
   return (
-    <li className="my-4 flex items-center hover:bg-slate-700">
+    <li className="my-4 flex items-center hover:bg-slate-700 ">
       <Image alt="Username" src={DiscordIcon} className="rounded-full w-10" />
       <span className="ml-3">Username</span>
       <div
