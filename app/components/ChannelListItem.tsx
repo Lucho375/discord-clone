@@ -3,7 +3,14 @@ import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
-function ChannelListItem({ id, icon, name, href }: { id: number; icon: StaticImageData; name: string; href: string }) {
+interface Props {
+  id: number
+  icon: StaticImageData
+  name: string
+  href: string
+}
+
+function ChannelListItem({ id, icon, name, href }: Props) {
   const [popoverStates, setPopoverStates] = useState<{ [key: number]: boolean }>({})
 
   const showPopover = (id: number) => {
