@@ -1,19 +1,20 @@
 import UserChat from '@/app/components/UserChat'
-import Image from 'next/image'
 
-export default function DirectMessages({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-        <section className={`bg-slate-800 pl-4 flex flex-col w-[200px] h-[100%]`}>
-          <h2>
-            Mensajes Directos <span>+</span>
-          </h2>
-          <hr></hr>
-          <ul className="mt-2">
-            <UserChat isActive={true} />
-            <UserChat isActive={false} />
-          </ul>
-        </section>
-    </>
+    <section className="flex h-full w-full">
+      <section className="bg-slate-900 pl-4 flex flex-col w-[230px]">
+        <h2>
+          Mensajes Directos <span>+</span>
+        </h2>
+
+        <ul className="mt-2">
+          <UserChat isActive={true} />
+          <UserChat isActive={false} />
+        </ul>
+      </section>
+
+      <>{children}</>
+    </section>
   )
 }
