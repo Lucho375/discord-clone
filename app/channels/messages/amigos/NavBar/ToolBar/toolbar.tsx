@@ -8,9 +8,9 @@ export default function ToolBar(){
     return(
         <section className={toolbarStyle.toolbar}>
             <div className={toolbarStyle.divider}></div>
-            <NavButton classes={["buttonContainer","buttonHover"]} icon={<MdMarkChatUnread />}/>
-            <NavButton classes={["buttonContainer","buttonHover"]} icon={<MdInbox />}/>
-            <NavButton classes={["buttonContainer","buttonHover"]} icon={<MdOutlineHelp />}/>
+            <NavButton id="md" classes={["buttonContainer","buttonHover"]} icon={<MdMarkChatUnread />}/>
+            <NavButton id="be" classes={["buttonContainer","buttonHover"]} icon={<MdInbox />}/>
+            <NavButton id= "hp" classes={["buttonContainer","buttonHover"]} icon={<MdOutlineHelp />}/>
         </section>
     )
 }

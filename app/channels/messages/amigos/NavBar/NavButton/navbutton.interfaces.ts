@@ -4,8 +4,9 @@ export interface INavButton{
     size?:ISize
     title?:string,
     classes:string[],
-    onClick?():void,
-    icon?: ReactElement
+    onClick?(id:string):void,
+    icon?: ReactElement,
+    id:string,
 }
 
 interface ISize{

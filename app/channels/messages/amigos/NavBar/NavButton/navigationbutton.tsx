@@ -8,9 +8,15 @@ export default function NavButton(props:INavButton){
     props.classes.forEach(cl=>{
         buttonClases = buttonClases + " " + buttonStyles[cl];
     })
+
+    function onClic(){
+        if(props.onClick){
+            props.onClick(props.id)
+        }
+    }
     return(
         <div className={buttonClases}>
-            <button className={buttonStyles.button} onClick={props.onClick}>{props.icon}{props.title}</button>
+            <button id={props.id} className={buttonStyles.button} onClick={onClic}>{props.icon}{props.title}</button>
         </div>
     )
     
