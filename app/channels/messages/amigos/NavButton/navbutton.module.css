@@ -1,0 +1,27 @@
+
+.buttonContainer{
+    min-width:100px;
+    height:30px;
+    background-color: #313338;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 5px;
+    color: #949ba4;
+    padding: 0 5px;
+
+}
+.addFriend{
+    background-color: #248046;
+    color:white;
+}
+
+.buttonFocus:focus{
+    color: #f2f4f7;
+    background-color: #3b3d44;
+}
+
+.buttonHover:hover{
+    background-color: #3b3d44;
+    color: #f2f4f7;
+}

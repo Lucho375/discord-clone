@@ -27,8 +27,9 @@ export default function TopBar(){
 
     return(
         <div className={styles.topbar}>
-            <input type="text" id={styles.search} placeholder="Busca o inicia una conversación"></input>
-            <hr className={styles.horizontalLine}/>
+            <div className={styles.searchContainer}>
+                <input type="text" id={styles.searchInput} placeholder="Busca o inicia una conversación"></input>
+            </div>
             {buttonsLinks.map((link,i)=><LinkBar key={i} href={link.href} icon={link.icon} title={link.title} />)}
         </div>
     )
