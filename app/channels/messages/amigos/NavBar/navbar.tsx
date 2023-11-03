@@ -1,7 +1,8 @@
 'use client'
 import NavButton from "./NavButton/navigationbutton";
 import { FaUserFriends } from 'react-icons/fa'
-import styles from './amigos.module.css'
+import styles from './navbar.module.css'
+import ToolBar from "./ToolBar/toolbar";
 
 export default function NavBar(){
 
@@ -43,7 +44,7 @@ export default function NavBar(){
             <p>Amigos</p>
             <div className={styles.divider}></div>
             {navButtons.map((button)=> <NavButton key={button.id} title={button.title} onClick={selectedScreen} classes={...button.classes}/>)}
-
+            <ToolBar />
         </section>
     )
 }

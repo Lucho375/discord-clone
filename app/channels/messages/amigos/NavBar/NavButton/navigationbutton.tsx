@@ -10,7 +10,7 @@ export default function NavButton(props:INavButton){
     })
     return(
         <div className={buttonClases}>
-            <button className={buttonStyles.button} onClick={props.onClick}>{props.title}</button>
+            <button className={buttonStyles.button} onClick={props.onClick}>{props.icon}{props.title}</button>
         </div>
     )
     

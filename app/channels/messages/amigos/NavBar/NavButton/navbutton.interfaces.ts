@@ -1,9 +1,11 @@
+import { ReactElement } from "react"
 
 export interface INavButton{
     size?:ISize
-    title:string,
+    title?:string,
     classes:string[],
-    onClick():void
+    onClick?():void,
+    icon?: ReactElement
 }
 
 interface ISize{

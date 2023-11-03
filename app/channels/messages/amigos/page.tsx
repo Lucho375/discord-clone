@@ -1,5 +1,5 @@
 import styles from './amigos.module.css'
-import NavBar from './navbar'
+import NavBar from './NavBar/navbar'
 
 export default function Amigos(){
 
