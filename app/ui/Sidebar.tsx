@@ -14,19 +14,19 @@ const channels: IChannelItem[] = [
     id: 1,
     icon: DiscordIcon,
     name: 'Mensajes Directos',
-    href: 'messages'
+    href: '/messages'
   },
   {
     id: 2,
     icon: DiscordIcon,
     name: 'Canal de prueba',
-    href: '1321321'
+    href: '/channel/1321321'
   },
   {
     id: 3,
     icon: DiscordIcon,
     name: 'Canal de prueba 2',
-    href: '3122312323'
+    href: '/channel/3122312323'
   }
 ]
 
@@ -37,7 +37,7 @@ export default function Sidebar() {
         {channels.map(({ id, icon, name, href }) => (
           <ChannelListItem key={id} id={id} icon={icon} name={name} href={href} />
         ))}
-        <li className="flex items-center justify-center rounded-full w-14 h-14 hover:bg-green-500 bg-slate-700 hover:cursor-pointer transition-all">
+        <li className="flex items-center justify-center rounded-full w-12 h-12 hover:bg-green-500 bg-slate-700 hover:cursor-pointer transition-all">
           <svg aria-hidden="true" role="img" width="24" height="24" viewBox="0 0 24 24">
             <path
               fill="currentColor"

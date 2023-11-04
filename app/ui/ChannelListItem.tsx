@@ -23,8 +23,8 @@ function ChannelListItem({ id, icon, name, href }: Props) {
 
   return (
     <li className="my-1 relative" onMouseEnter={() => showPopover(id)} onMouseLeave={() => hidePopover(id)}>
-      <Link href={`/channels/${href}`}>
-        <Image alt="Mensajes directos" src={icon} className="rounded-full w-14" />
+      <Link href={href}>
+        <Image alt="Mensajes directos" src={icon} className="rounded-full w-12" />
       </Link>
       {popoverStates[id] && (
         <p className="absolute top-2 left-16 bg-black border py-1 px-2 rounded shadow-md text-white min-w-max">
