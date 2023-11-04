@@ -1,4 +1,4 @@
-import DirectMessages from '../ui/direct-messages/DirectMessages'
+import DirectMessages from '../ui/DirectMessages'
 import TopBar from '../ui/friends-topbar/topBar'
 
 export default function Layout({ children }: { children: React.ReactNode }) {

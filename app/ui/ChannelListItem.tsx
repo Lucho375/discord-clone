@@ -27,7 +27,7 @@ function ChannelListItem({ id, icon, name, href }: Props) {
         <Image alt="Mensajes directos" src={icon} className="rounded-full w-12" />
       </Link>
       {popoverStates[id] && (
-        <p className="absolute top-2 left-16 bg-black border py-1 px-2 rounded shadow-md text-white min-w-max">
+        <p className="absolute text-sm font-semibold top-2 left-16 bg-black py-1 px-2 rounded shadow-md text-white min-w-max">
           {name}
         </p>
       )}

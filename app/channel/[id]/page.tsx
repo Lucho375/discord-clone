@@ -1,9 +1,9 @@
-'use client'
-import { useParams } from 'next/navigation'
+interface Params {
+  params: { id: string }
+}
 
-function ChannelPage() {
-  const { id } = useParams()
-  return <div>Channel {id}</div>
+function ChannelPage({ params }: Params) {
+  return <div>Channel {params.id}</div>
 }
 
 export default ChannelPage

@@ -1,5 +1,5 @@
 import { AiOutlinePlus } from 'react-icons/ai'
-import UserChat from '../UserChat'
+import UserChat from './UserChat'
 
 function DirectMessages() {
   // TODO: fetch messages
