@@ -20,12 +20,26 @@ export default function ToolBar() {
     "border-solid",
     "border-[#3f4147]"
 ];
+
+const buttonContainerClass = [
+  "h-[30px]",
+  "bg-[#313338]",
+  "flex",
+  "justify-center",
+  "items-center",
+  "rounded-md",
+  "px-[5px]"
+];
+const buttonHoverClass=[
+  "hover:bg-[#3b3d44]",
+  "hover:text-[#f2f4f7]"
+];
   return (
     <section className={toolbarClass.join(" ")}>
       <div className={dividerClass.join(" ")}></div>
-      <NavButton id="md" classes={['buttonContainer', 'buttonHover']} icon={<MdMarkChatUnread />} />
-      <NavButton id="be" classes={['buttonContainer', 'buttonHover']} icon={<MdInbox />} />
-      <NavButton id="hp" classes={['buttonContainer', 'buttonHover']} icon={<MdOutlineHelp />} />
+      <NavButton id="md" class={[...buttonContainerClass,...buttonHoverClass].join(" ")} icon={<MdMarkChatUnread />} />
+      <NavButton id="be" class={[...buttonContainerClass,...buttonHoverClass].join(" ")} icon={<MdInbox />} />
+      <NavButton id="hp" class={[...buttonContainerClass,...buttonHoverClass].join(" ")} icon={<MdOutlineHelp />} />
     </section>
   )
 }

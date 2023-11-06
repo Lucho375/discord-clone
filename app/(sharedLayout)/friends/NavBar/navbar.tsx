@@ -5,6 +5,7 @@ import styles from './navbar.module.css'
 import ToolBar from "./ToolBar/toolbar";
 import { INavbarProps } from "./navbar.interfaces";
 
+
 export default function NavBar(props:INavbarProps){
     const navbarClass = [
         "w-[100%]",
@@ -23,32 +24,45 @@ export default function NavBar(props:INavbarProps){
         "border-[1px]",
         "border-solid",
         "border-[#3f4147]"
-    ]
+    ];
+    const buttonContainerClass = [
+        "h-[30px]",
+        "bg-[#313338]",
+        "flex",
+        "justify-center",
+        "items-center",
+        "rounded-md",
+        "px-[5px]"
+    ];
+    const buttonHoverClass=[
+        "hover:bg-[#3b3d44]",
+        "hover:text-[#f2f4f7]"
+    ];
     const navButtons=[
         {
             title:"En línea",
             id:"screen-1",
-            classes:["buttonContainer","buttonFocus","buttonHover"]
+            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Todos",
             id:"screen-2",
-            classes:["buttonContainer","buttonFocus","buttonHover"]
+            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Pendiente",
             id:"screen-3",
-            classes:["buttonContainer","buttonFocus","buttonHover"]
+            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Bloqueado",
             id:"screen-4",
-            classes:["buttonContainer","buttonFocus","buttonHover"]
+            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Añadir amigo",
             id:"screen-5",
-            classes:["buttonContainer","addFriend"]
+            class:[...buttonContainerClass,"bg-[#248046]","text-white"]
         },
 
     ]
@@ -62,7 +76,7 @@ export default function NavBar(props:INavbarProps){
             <FaUserFriends color="#949ba4" /> 
             <p>Amigos</p>
             <div className={dividerClass.join(" ")}></div>
-            {navButtons.map((button)=> <NavButton key={button.id} id={button.id} title={button.title} onClick={selectedScreen} classes={...button.classes}/>)}
+            {navButtons.map((button)=> <NavButton key={button.id} id={button.id} title={button.title} onClick={selectedScreen} class={button.class.join(" ")}/>)}
             <ToolBar />
         </section>
     )
