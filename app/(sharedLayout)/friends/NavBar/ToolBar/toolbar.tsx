@@ -37,9 +37,9 @@ const buttonHoverClass=[
   return (
     <section className={toolbarClass.join(" ")}>
       <div className={dividerClass.join(" ")}></div>
-      <NavButton id="md" class={[...buttonContainerClass,...buttonHoverClass].join(" ")} icon={<MdMarkChatUnread />} />
-      <NavButton id="be" class={[...buttonContainerClass,...buttonHoverClass].join(" ")} icon={<MdInbox />} />
-      <NavButton id="hp" class={[...buttonContainerClass,...buttonHoverClass].join(" ")} icon={<MdOutlineHelp />} />
+      <NavButton id="md" class={[...buttonContainerClass,...buttonHoverClass]} icon={<MdMarkChatUnread />} />
+      <NavButton id="be" class={[...buttonContainerClass,...buttonHoverClass]} icon={<MdInbox />} />
+      <NavButton id="hp" class={[...buttonContainerClass,...buttonHoverClass]} icon={<MdOutlineHelp />} />
     </section>
   )
 }
