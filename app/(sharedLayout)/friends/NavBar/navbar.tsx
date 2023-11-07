@@ -32,7 +32,6 @@ export default function NavBar(props:INavbarProps){
     ];
     const buttonContainerClass = [
         "h-[30px]",
-        "bg-[#313338]",
         "flex",
         "justify-center",
         "items-center",
@@ -49,65 +48,55 @@ export default function NavBar(props:INavbarProps){
         {
             title:"En línea",
             id:"screen-1",
-            isSelected:true,
-            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
+            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass,...focusClass]
         },
         {
             title:"Todos",
             id:"screen-2",
-            isSelected:false,
-            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
+            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Pendiente",
             id:"screen-3",
-            isSelected:false,
-            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
+            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Bloqueado",
             id:"screen-4",
-            isSelected:false,
-            class:[...buttonContainerClass,"text-[#949ba4]",...buttonHoverClass]
+            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Añadir amigo",
             id:"screen-5",
-            isSelected:false,
             class:[...buttonContainerClass,"bg-[#248046]","text-white"]
-        },
+        }
 
     ]
 
-    useEffect(()=>
-    {
-        setNavButtons(Buttons);
-    },[]);
 
     function selectedScreen(screen:string){
         props.selectedScreen(screen);
         const buttonIndex = navButtons.findIndex(btn=>btn.id === screen);
-        if(buttonIndex){
+        if(buttonIndex !== -1){
             navButtons.map((btn,i)=>{
                 if(i === buttonIndex){
                     const buttons = [...navButtons];
-                    buttons[i] = addClass(buttons[i]);
-                    setNavButtons([...buttons])
+                    addClass(buttons[i])
+                    setNavButtons([...buttons]);
                 }else{
                     const buttons = [...navButtons];
-                    buttons[i] = removeClass(buttons[i],focusClass)
-                    setNavButtons(buttons)
+                    removeClass(buttons[i],focusClass);
+                    setNavButtons(buttons);
                 }
             })
         }
     }
 
-    function addClass(button:INavButton):INavButton{
+    function addClass(button:INavButton){
             const btn = button;
             btn.class = [...btn.class,...focusClass];
-            return btn;
     }
-    function removeClass(button:INavButton,btnClases: string | string[]):INavButton{
+    function removeClass(button:INavButton,btnClases: string | string[]){
         const btn = button;
         const clases = btnClases;
         if(clases instanceof Array){
@@ -122,6 +111,11 @@ export default function NavBar(props:INavbarProps){
         btn.class = btn.class.filter(cls=>cls !== clases)
         return btn;
         }
+
+        useEffect(()=>
+        {
+            setNavButtons(Buttons);
+        },[]);
 
     return(
         <section className={navbarClass.join(" ")}>
