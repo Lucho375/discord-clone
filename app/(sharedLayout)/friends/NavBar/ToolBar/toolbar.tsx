@@ -1,6 +1,5 @@
 import { MdInbox, MdMarkChatUnread, MdOutlineHelp } from 'react-icons/md'
 import NavButton from '../NavButton/navigationbutton'
-import toolbarStyle from '../navbar.module.css'
 
 export default function ToolBar() {
 
@@ -21,15 +20,6 @@ export default function ToolBar() {
     "border-[#3f4147]"
 ];
 
-const buttonContainerClass = [
-  "h-[30px]",
-  "bg-[#313338]",
-  "flex",
-  "justify-center",
-  "items-center",
-  "rounded-md",
-  "px-[5px]"
-];
 const buttonHoverClass=[
   "hover:bg-[#3b3d44]",
   "hover:text-[#f2f4f7]"
@@ -37,9 +27,9 @@ const buttonHoverClass=[
   return (
     <section className={toolbarClass.join(" ")}>
       <div className={dividerClass.join(" ")}></div>
-      <NavButton id="md" class={[...buttonContainerClass,...buttonHoverClass]} icon={<MdMarkChatUnread />} />
-      <NavButton id="be" class={[...buttonContainerClass,...buttonHoverClass]} icon={<MdInbox />} />
-      <NavButton id="hp" class={[...buttonContainerClass,...buttonHoverClass]} icon={<MdOutlineHelp />} />
+      <NavButton id="md" className={[...buttonHoverClass]} icon={<MdMarkChatUnread />} />
+      <NavButton id="be" className={[...buttonHoverClass]} icon={<MdInbox />} />
+      <NavButton id="hp" className={[...buttonHoverClass]} icon={<MdOutlineHelp />} />
     </section>
   )
 }

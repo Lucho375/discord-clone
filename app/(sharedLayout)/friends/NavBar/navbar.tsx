@@ -30,48 +30,41 @@ export default function NavBar(props:INavbarProps){
         "border-solid",
         "border-[#3f4147]"
     ];
-    const buttonContainerClass = [
-        "h-[30px]",
-        "flex",
-        "justify-center",
-        "items-center",
-        "rounded-md",
-        "px-[5px]"
-    ];
     const buttonHoverClass=[
         "hover:bg-[#3b3d44]",
         "hover:text-[#f2f4f7]"
     ];
     const focusClass = ["bg-[#3b3d44]","text-[#f2f4f7]"];
 
-    const Buttons=[
+    const Buttons:INavButton[]=[
         {
             title:"En línea",
             id:"screen-1",
-            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass,...focusClass]
+            className:["bg-[#313338]","text-[#949ba4]",...buttonHoverClass,...focusClass]
         },
         {
             title:"Todos",
             id:"screen-2",
-            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
+            className:["bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Pendiente",
             id:"screen-3",
-            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
+            className:["bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
         },
         {
             title:"Bloqueado",
             id:"screen-4",
-            class:[...buttonContainerClass,"bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
-        },
+            className:["bg-[#313338]","text-[#949ba4]",...buttonHoverClass]
+        }
+    ];
+
+    const friendBtn =
         {
             title:"Añadir amigo",
             id:"screen-5",
-            class:[...buttonContainerClass,"bg-[#248046]","text-white"]
-        }
-
-    ]
+            class:["bg-[#248046]","text-white"]
+        };
 
 
     function selectedScreen(screen:string){
@@ -94,7 +87,8 @@ export default function NavBar(props:INavbarProps){
 
     function addClass(button:INavButton){
             const btn = button;
-            btn.class = [...btn.class,...focusClass];
+            
+            btn.className = [...btn.className ?? [],...focusClass];
     }
     function removeClass(button:INavButton,btnClases: string | string[]){
         const btn = button;
@@ -102,13 +96,13 @@ export default function NavBar(props:INavbarProps){
         if(clases instanceof Array){
             clases.forEach((cls)=>
             {
-                const result =  [...btn.class.filter(cl=>cl !== cls)];
+                const result =  [...btn.className?.filter(cl=>cl !== cls) ?? []];
                 console.log("las clases")
-                btn.class = result;
+                btn.className = result;
             })
             return btn;
         }
-        btn.class = btn.class.filter(cls=>cls !== clases)
+        btn.className = btn.className?.filter(cls=>cls !== clases) ?? []
         return btn;
         }
 
@@ -123,7 +117,8 @@ export default function NavBar(props:INavbarProps){
             <p>Amigos</p>
             <>{console.log("se renderiza nav")}</>
             <div className={dividerClass.join(" ")}></div>
-            {navButtons.map((button)=> <NavButton key={button.id} id={button.id} title={button.title} onClick={selectedScreen} class={button.class}/>)}
+            {navButtons.map((button)=> <NavButton key={button.id} id={button.id} title={button.title} onClick={selectedScreen} className={button.className}/>)}
+            <NavButton title={friendBtn.title} onClick={selectedScreen} id={friendBtn.id} className={friendBtn.class}/>
             <ToolBar />
         </section>
     )

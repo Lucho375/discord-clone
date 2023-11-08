@@ -3,7 +3,7 @@ import { ReactElement } from "react"
 export interface INavButton{
     size?:ISize
     title?:string,
-    class:string[],
+    className?:string[],
     onClick?(id:string):void,
     icon?: ReactElement,
     id:string,
