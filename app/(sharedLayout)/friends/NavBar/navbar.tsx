@@ -14,7 +14,7 @@ export default function NavBar(props:INavbarProps){
     
     const navbarClass = [
         "w-[100%]",
-        "h-[48px]",
+        "min-h-[48px]",
         "flex",
         "justify-start",
         "items-center",

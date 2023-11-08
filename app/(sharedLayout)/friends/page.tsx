@@ -1,6 +1,7 @@
 'use client'
 import { ReactElement, useState } from 'react'
 import NavBar from './NavBar/navbar'
+import OnlineScreen from './screens/online/onlineScreen'
 
 interface Screen {
   [key: string]: ReactElement
@@ -21,11 +22,7 @@ export default function FriendsPage() {
   ];
 
   const screens: Screen = {
-    'screen-1': (
-      <div className="w-[90%] h-[90%] bg-slate-600 flex justify-center items-center border-white m-5">
-        <h1>En línea!</h1>
-      </div>
-    ),
+    'screen-1': (<OnlineScreen />),
     'screen-2': (
       <div className="w-[90%] h-[90%] bg-red-600 flex justify-center items-center border-white m-5">
         <h1>Todos!</h1>
