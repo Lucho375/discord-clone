@@ -3,7 +3,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 interface IDivider{
     width?:string,
     size?:string,
-    color?:string,
+    borderColor?:string,
     borderWidth?:string,
     borderType?:string,
     className?:string[],
@@ -17,8 +17,8 @@ interface DividerOrientation{
 const Divider = (props:IDivider)=>{
 
         const defaultStyle:DividerOrientation = {
-            "v": "h-[100%] border-[#3f4147] border-solid border-[1px] mx-3",
-            "h": "w-[100%] border-[#3f4147] border-solid border-[1px] my-3"
+            "v": `h-[100%] border-[#3f4147] border-solid border-[1px] mx-3 border-${props.borderColor}`,
+            "h": `w-[100%] border-[#3f4147] border-solid border-[1px] my-3 border-${props.borderColor}`
         }
 
     return(
