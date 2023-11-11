@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-interface IButtonLinks {
+export interface IButtonLinks {
   href: string
   title: string
   icon: React.ReactNode
