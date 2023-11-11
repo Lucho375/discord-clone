@@ -29,29 +29,29 @@ export default function NavBar(props: INavbarProps) {
     {
       title: 'En línea',
       id: 'screen-1',
-      className: ['bg-[#313338]', 'text-[#949ba4]', ...buttonHoverClass, ...focusClass]
+      className: ['bg-[#313338]', 'text-[#949ba4]', 'rounded-md', ...buttonHoverClass, ...focusClass]
     },
     {
       title: 'Todos',
       id: 'screen-2',
-      className: ['bg-[#313338]', 'text-[#949ba4]', ...buttonHoverClass]
+      className: ['bg-[#313338]', 'text-[#949ba4]', 'rounded-md', ...buttonHoverClass]
     },
     {
       title: 'Pendiente',
       id: 'screen-3',
-      className: ['bg-[#313338]', 'text-[#949ba4]', ...buttonHoverClass]
+      className: ['bg-[#313338]', 'text-[#949ba4]', 'rounded-md', ...buttonHoverClass]
     },
     {
       title: 'Bloqueado',
       id: 'screen-4',
-      className: ['bg-[#313338]', 'text-[#949ba4]', ...buttonHoverClass]
+      className: ['bg-[#313338]', 'text-[#949ba4]', 'rounded-md', ...buttonHoverClass]
     }
   ]
 
   const friendBtn = {
     title: 'Añadir amigo',
     id: 'screen-5',
-    class: ['bg-[#248046]', 'text-white']
+    class: ['bg-[#248046]', 'text-white', 'rounded-md']
   }
 
   function selectedScreen(screen: string) {

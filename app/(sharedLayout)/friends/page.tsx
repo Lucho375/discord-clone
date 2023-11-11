@@ -11,18 +11,18 @@ export default function FriendsPage() {
   const [screen, setScreen] = useState('screen-1')
 
   const mainPageStyle = [
-    "bg-[#313338]",
-    "w-[100%]",
-    "h-[100vh]",
-    "flex",
-    "flex-col",
-    "justify-start",
-    "items-center",
-    "pt-[5px]"
-  ];
+    'bg-[#313338]',
+    'w-[100%]',
+    'h-[100vh]',
+    'flex',
+    'flex-col',
+    'justify-start',
+    'items-center',
+    'pt-[5px]'
+  ]
 
   const screens: Screen = {
-    'screen-1': (<OnlineScreen />),
+    'screen-1': <OnlineScreen />,
     'screen-2': (
       <div className="w-[90%] h-[90%] bg-red-600 flex justify-center items-center border-white m-5">
         <h1>Todos!</h1>
@@ -45,7 +45,7 @@ export default function FriendsPage() {
   }
 
   return (
-    <div className={mainPageStyle.join(" ")}>
+    <div className={mainPageStyle.join(' ')}>
       <NavBar selectedScreen={selectScreen} />
       {screens[screen]}
     </div>
