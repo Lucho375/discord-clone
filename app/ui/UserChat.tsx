@@ -6,15 +6,14 @@ import { useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 
 interface Props {
+  id: string
   isActive: boolean
+  user: string
+  removeChat: () => void
 }
 
-function UserChat({ isActive }: Props) {
+function UserChat({ isActive, user, removeChat, id }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false)
-
-  const handleRemoveChat = () => {
-    // remove-chat
-  }
 
   return (
     <li
@@ -22,17 +21,17 @@ function UserChat({ isActive }: Props) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href="/messages/15115">
+      <Link href={`/messages/${id}`}>
         <div className="flex items-center">
           <Image alt="Username" src={DiscordIcon} className="rounded-full w-8" />
-          <span className="ml-3 text-sm">Username</span>
           <div
-            className={`relative w-3 h-3 -left-[90px] top-3 rounded-full ${isActive ? 'bg-red-600' : 'bg-green-600'}`}
+            className={`relative w-3 h-3 -left-[9px] top-3 rounded-full ${isActive ? 'bg-red-600' : 'bg-green-600'}`}
           ></div>
+          <span className="ml-3 text-sm">{user}</span>
         </div>
       </Link>
       {isHovered ? (
-        <button onClick={handleRemoveChat}>
+        <button onClick={removeChat}>
           <AiOutlineClose />
         </button>
       ) : null}
