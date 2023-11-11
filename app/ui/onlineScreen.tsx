@@ -1,7 +1,7 @@
 import Divider from '@/app/ui/Divider'
 import Input from '@/app/ui/Input'
 import { BiSearch } from 'react-icons/bi'
-import ListItem from './ListItem'
+import UserItem from './UserItem'
 import perfil from '/public/giovi-perfil.jpg'
 
 export default function OnlineScreen() {
@@ -12,10 +12,8 @@ export default function OnlineScreen() {
           className={['w-[100%]', 'h-[35px]', 'bg-[#1e1f22]', 'active: border-none', 'rounded-md', 'px-1']}
           icon={<BiSearch />}
         />
-        <h6 className="text-[#949ba4] pt-8 text-xs">CONECTADO - 3</h6>
-        <Divider orientation="h" />
-        <ListItem status="en linea" icon={perfil.src} uid="u-45623" />
-        <Divider orientation="h" />
+        <h6 className="text-[#949ba4] pt-8 text-xs mb-4">CONECTADO - 3</h6>
+        <UserItem status="en linea" avatar={perfil.src} uid="u-45623" globalName="Gio_22" userName="egGio22" />
       </section>
       <section className=" h-[100%] px-5 pt-4 w-[30%]">
         <h3 className="text-[#f2f3f5] font-bold self-start mb-4">Activo ahora</h3>

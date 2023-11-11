@@ -1,25 +1,24 @@
 'use client'
+import NavBar from '@/app/ui/friends-navbar'
 import { ReactElement, useState } from 'react'
-import NavBar from './NavBar/navbar'
-import OnlineScreen from './screens/online/onlineScreen'
+import OnlineScreen from '../../ui/onlineScreen'
 
 interface Screen {
   [key: string]: ReactElement
 }
+const mainPageStyle = [
+  'bg-[#313338]',
+  'w-[100%]',
+  'h-[100vh]',
+  'flex',
+  'flex-col',
+  'justify-start',
+  'items-center',
+  'pt-[5px]'
+]
 
-export default function FriendsPage() {
-  const [screen, setScreen] = useState('screen-1')
-
-  const mainPageStyle = [
-    'bg-[#313338]',
-    'w-[100%]',
-    'h-[100vh]',
-    'flex',
-    'flex-col',
-    'justify-start',
-    'items-center',
-    'pt-[5px]'
-  ]
+const Friends = () => {
+  const [currentScreen, setCurrentScreen] = useState('screen-1')
 
   const screens: Screen = {
     'screen-1': <OnlineScreen />,
@@ -40,14 +39,12 @@ export default function FriendsPage() {
     )
   }
 
-  function selectScreen(screen: string) {
-    setScreen(screen)
-  }
-
   return (
     <div className={mainPageStyle.join(' ')}>
-      <NavBar selectedScreen={selectScreen} />
-      {screens[screen]}
+      <NavBar selectedScreen={setCurrentScreen} />
+      {screens[currentScreen]}
     </div>
   )
 }
+
+export default Friends

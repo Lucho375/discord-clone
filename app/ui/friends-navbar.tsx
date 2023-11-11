@@ -1,27 +1,17 @@
 'use client'
-import NavButton from './NavButton/navigationbutton'
+import NavButton, { INavButton } from './navigationbutton'
 import { FaUserFriends } from 'react-icons/fa'
-import ToolBar from './ToolBar/toolbar'
-import { INavbarProps } from './navbar.interfaces'
+import ToolBar from './toolbar'
 import { useEffect, useState } from 'react'
-import { INavButton } from './NavButton/navbutton.interfaces'
+import Divider from './Divider'
+
+interface INavbarProps {
+  selectedScreen(screen: string): void
+}
 
 export default function NavBar(props: INavbarProps) {
   const [navButtons, setNavButtons] = useState<INavButton[]>([])
 
-  const navbarClass = [
-    'w-[100%]',
-    'min-h-[48px]',
-    'flex',
-    'justify-start',
-    'items-center',
-    'gap-[10px]',
-    'border-b-[1px]',
-    'border-b-solid',
-    'border-[#1f2124]',
-    'pl-[20px]'
-  ]
-  const dividerClass = ['h-[80%]', 'border-[1px]', 'border-solid', 'border-[#3f4147]']
   const buttonHoverClass = ['hover:bg-[#3b3d44]', 'hover:text-[#f2f4f7]']
   const focusClass = ['bg-[#3b3d44]', 'text-[#f2f4f7]']
 
@@ -45,14 +35,13 @@ export default function NavBar(props: INavbarProps) {
       title: 'Bloqueado',
       id: 'screen-4',
       className: ['bg-[#313338]', 'text-[#949ba4]', 'rounded-md', ...buttonHoverClass]
+    },
+    {
+      title: 'Añadir amigo',
+      id: 'screen-5',
+      className: ['bg-[#248046]', 'text-white', 'rounded-md']
     }
   ]
-
-  const friendBtn = {
-    title: 'Añadir amigo',
-    id: 'screen-5',
-    class: ['bg-[#248046]', 'text-white', 'rounded-md']
-  }
 
   function selectedScreen(screen: string) {
     props.selectedScreen(screen)
@@ -97,11 +86,11 @@ export default function NavBar(props: INavbarProps) {
   }, [])
 
   return (
-    <section className={navbarClass.join(' ')}>
+    <section className="w-[100%] min-h-[48px] flex justify-start items-center gap-3 border-b-[1px] border-b-solid border-[#1f2124] pl-5">
       <FaUserFriends color="#949ba4" />
       <p>Amigos</p>
       <>{console.log('se renderiza nav')}</>
-      <div className={dividerClass.join(' ')}></div>
+      <Divider orientation="v" size="h-[50%]" />
       {navButtons.map(button => (
         <NavButton
           key={button.id}
@@ -111,7 +100,6 @@ export default function NavBar(props: INavbarProps) {
           className={button.className}
         />
       ))}
-      <NavButton title={friendBtn.title} onClick={selectedScreen} id={friendBtn.id} className={friendBtn.class} />
       <ToolBar />
     </section>
   )

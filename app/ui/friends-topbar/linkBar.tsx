@@ -1,5 +1,10 @@
 import Link from 'next/link'
-import { IButtonLinks } from './ITopbar'
+
+interface IButtonLinks {
+  href: string
+  title: string
+  icon: React.ReactNode
+}
 
 export default function LinkBar({ icon, title, href }: IButtonLinks) {
   return (
