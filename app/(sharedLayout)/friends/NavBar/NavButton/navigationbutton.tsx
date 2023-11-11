@@ -10,6 +10,8 @@ const defaultStyle = [
     "px-[5px]",
 ];
 
+const hover= "hover:bg-[#3b3d44] hover:text-[#f2f4f7]";
+
 
 
 export default function NavButton(props:INavButton){
@@ -24,7 +26,7 @@ export default function NavButton(props:INavButton){
     ]
 
     return(
-        <div className={containerStyle.join(" ")}>
+        <div className={`${containerStyle.join(" ")} ${props.hover ? hover : null}`}>
             <button id={props.id} onClick={onClic}>{props.icon}{props.title}</button>
         </div>
     )

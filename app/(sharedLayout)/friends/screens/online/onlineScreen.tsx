@@ -1,6 +1,8 @@
 import Divider from "@/app/ui/Divider"
 import Input from "@/app/ui/Input"
 import { BiSearch } from 'react-icons/bi'
+import ListItem from "./ListItem"
+import perfil from '/public/giovi-perfil.jpg'
 
 export default function OnlineScreen(){
 
@@ -9,6 +11,8 @@ export default function OnlineScreen(){
             <section className="flex flex-col justify-start items-start w-[70%] h-[100%] px-5 border-r-2 border-solid border-[#3f4147] pt-4">
             <Input className={["w-[100%]","h-[35px]","bg-[#1e1f22]","active: border-none","rounded-md","px-1"]} icon={<BiSearch />}/>
             <h6 className="text-[#949ba4] pt-8 text-xs">CONECTADO - 3</h6>
+            <Divider orientation="h"/>
+            <ListItem status="en linea" icon={perfil}/>
             <Divider orientation="h"/>
             </section>
             <section className=" h-[100%] px-5 pt-4 w-[30%]">

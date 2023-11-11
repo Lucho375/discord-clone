@@ -7,6 +7,7 @@ export interface INavButton{
     onClick?(id:string):void,
     icon?: ReactElement,
     id:string,
+    hover?:boolean,
 }
 
 interface ISize{
