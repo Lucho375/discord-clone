@@ -1,7 +1,7 @@
 'use client'
 import NavBar from '@/app/ui/friends-navbar'
+import OnlineScreen from '@/app/ui/onlineScreen'
 import { ReactElement, useState } from 'react'
-import OnlineScreen from '../../ui/onlineScreen'
 
 interface Screen {
   [key: string]: ReactElement

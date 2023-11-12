@@ -1,4 +1,4 @@
-import ServerSideBar from '../ui/ServerSideBar'
+import ServerSideBar from '@/app/ui/ServerSideBar'
 
 export default function ChannelLayout({ children }: { children: React.ReactNode }) {
   return (
