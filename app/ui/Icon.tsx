@@ -1,7 +1,7 @@
 'use client'
 import { ReactElement, useState } from 'react'
-import Viñeta from './Viñeta'
 import { BsFillEmojiSmileUpsideDownFill } from 'react-icons/bs'
+import Viñeta from './Viñeta'
 
 interface IIconProps {
   icon?: ReactElement

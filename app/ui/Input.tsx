@@ -1,41 +1,23 @@
-import { ReactElement, FunctionComponent, useState, useEffect } from 'react';
+import { ReactElement, FunctionComponent, useState, useEffect } from 'react'
 
-interface IInputProps{
-    type?:string,
-    placeHolder?: string ,
-    id?:string,
-    className?:string[],
-    icon?: ReactElement,
+interface IInputProps {
+  type?: string
+  placeHolder?: string
+  id?: string
+  className?: string[]
+  icon?: ReactElement
 }
-const defaultContainerStyle=[
-    "flex",
-    "justify-center",
-    "bg-[#1e1f22]",
-    "active: border-none",
-]
-const defaultInputStyle=[
-    "grow",
-    "h-[100%]",
-    "bg-[#1e1f22]",
-    "outline-none",
-]
-const defaultIconStyle=[
-    "flex",
-    "justify-center",
-    "items-center",
-    "w-[32px]",
-    "h-[100%]",
-]
+const defaultContainerStyle = ['flex', 'justify-center', 'bg-[#1e1f22]', 'active: border-none']
+const defaultInputStyle = ['grow', 'h-[100%]', 'bg-[#1e1f22]', 'outline-none']
+const defaultIconStyle = ['flex', 'justify-center', 'items-center', 'w-[32px]', 'h-[100%]']
 
-const Input:FunctionComponent<IInputProps>= ({placeHolder="Buscar",className=[],icon,type="text",id})=>{
-    const containerStyle = `${defaultContainerStyle.join(" ")} ${className.join(" ")}`
+export default function Input({ placeHolder = 'Buscar', className = [], icon, type = 'text', id }: IInputProps) {
+  const containerStyle = `${defaultContainerStyle.join(' ')} ${className.join(' ')}`
 
-    return (
-        <div className={containerStyle}>
-            <input className={defaultInputStyle.join(" ")} type={type} id={id} placeholder={placeHolder}></input>
-            <div className={defaultIconStyle.join(" ")}>{icon}</div>
-        </div>
-    )
+  return (
+    <div className={containerStyle}>
+      <input className={defaultInputStyle.join(' ')} type={type} id={id} placeholder={placeHolder}></input>
+      <div className={defaultIconStyle.join(' ')}>{icon}</div>
+    </div>
+  )
 }
-
-export default Input;

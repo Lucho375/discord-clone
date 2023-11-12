@@ -1,9 +1,9 @@
 'use client'
-import NavButton, { INavButton } from './navigationbutton'
-import { FaUserFriends } from 'react-icons/fa'
-import ToolBar from './toolbar'
 import { useEffect, useState } from 'react'
+import { FaUserFriends } from 'react-icons/fa'
 import Divider from './Divider'
+import NavButton, { INavButton } from './navigationbutton'
+import ToolBar from './toolbar'
 
 interface INavbarProps {
   selectedScreen(screen: string): void

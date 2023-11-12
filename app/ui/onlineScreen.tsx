@@ -13,7 +13,7 @@ export default function OnlineScreen() {
           icon={<BiSearch />}
         />
         <h6 className="text-[#949ba4] pt-8 text-xs mb-4">CONECTADO - 3</h6>
-        <UserItem status="en linea" avatar={perfil.src} uid="u-45623" globalName="Gio_22" userName="egGio22" />
+        <UserItem status="online" avatar={perfil.src} uid="u-45623" globalName="Gio_22" userName="egGio22" />
       </section>
       <section className=" h-[100%] px-5 pt-4 w-[30%]">
         <h3 className="text-[#f2f3f5] font-bold self-start mb-4">Activo ahora</h3>
