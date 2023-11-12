@@ -1,9 +1,8 @@
-import { ReactElement } from 'react'
+import { ReactElement, useRef, useEffect } from 'react'
 interface IToolTipProps {
   text?: string
   position?: 'top' | 'bottom' | 'left' | 'right'
   componentRef: React.RefObject<HTMLElement>
-  width?: number
   visibility: boolean
   icon?: ReactElement
 }
@@ -11,21 +10,18 @@ export default function ToolTip({
   text = 'hola mundo',
   position = 'top',
   componentRef,
-  width = 0,
   visibility,
   icon
 }: IToolTipProps) {
+  const parentHeight = componentRef.current?.offsetHeight ?? 10
+  const parentWidth = componentRef.current?.offsetWidth ?? 10
   const sidePosition: { [key: string]: object } = {
-    left: { right: `${(componentRef.current?.offsetWidth ?? width) + 10}px` },
-    right: { left: `${(componentRef.current?.offsetWidth ?? width) + 10}px` }
+    left: { right: `${Math.round(parentWidth + 10)}px`, top: `${Math.round(parentHeight / 4)}px` },
+    right: { left: `${Math.round(parentWidth + 10)}px`, top: `${Math.round(parentHeight / 4)}px` },
+    top: { top: `-${parentHeight + 8}px` },
+    bottom: { bottom: `-${parentHeight + 8}px` }
   }
 
-  const tooltipPosition: { [key: string]: string } = {
-    top: 'top-[-40px]',
-    bottom: 'bottom-[-40px]',
-    left: 'top-auto',
-    right: `top-auto`
-  }
   const arrowPosition: { [key: string]: string } = {
     top: 'top-[16px] left-auto',
     bottom: 'top-[-3px] left-auto',
@@ -36,8 +32,8 @@ export default function ToolTip({
   return (
     <div
       className={`bg-[#1e1f22] w-max h-7 rounded-md p-1 flex justify-center items-center absolute gap-2 ${
-        tooltipPosition[position]
-      } ${visibility ? 'visible' : 'invisible'}`}
+        visibility ? 'visible' : 'invisible'
+      }`}
       style={sidePosition[position]}
     >
       <span className={`bg-[#1e1f22] w-4 h-4 rotate-45 absolute ${arrowPosition[position]}`}></span>
