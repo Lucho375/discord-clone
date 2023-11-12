@@ -1,13 +1,8 @@
-'use client'
-
 import { useState } from 'react'
 import { BiSolidMessage } from 'react-icons/bi'
 import { CiMenuKebab } from 'react-icons/ci'
 import NavButton from './navigationbutton'
-import Icon from './Icon'
 import Link from 'next/link'
-import { title } from 'process'
-import { MdOutlineMarkChatUnread } from 'react-icons/md'
 interface IListItemProps {
   status: 'online' | 'away' | 'do not disturb' | 'invisible'
   avatar: string
@@ -18,7 +13,7 @@ interface IListItemProps {
 
 export default function UserItem({ status, avatar, uid, globalName, userName }: IListItemProps) {
   const [userState, setUserState] = useState(status)
-  const [showUserName, setShowUserName] = useState(false)
+  const [hover, setHover] = useState(false)
 
   const states: { [key: string]: string } = {
     invisible: 'bg-[#313338c7]',
@@ -31,8 +26,8 @@ export default function UserItem({ status, avatar, uid, globalName, userName }: 
     <Link
       href={`/messages/${uid}`}
       className="h-16 w-[100%] hover:bg-[#3b3d44] hover:rounded-md flex gap-2 justify-start items-center px-2 cursor-pointer border-t border-solid border-[#3b3d44]"
-      onMouseEnter={() => setShowUserName(true)}
-      onMouseLeave={() => setShowUserName(false)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       <div className=" w-8 h-8">
         <img src={avatar} alt="User image" className="rounded-full w-8 h-8" />
@@ -40,8 +35,7 @@ export default function UserItem({ status, avatar, uid, globalName, userName }: 
       </div>
       <div className="">
         <p className="text-sm">
-          {globalName}{' '}
-          <span className={`${showUserName ? 'text-[#949ba4]' : 'text-transparent'} text-xs`}>{userName}</span>
+          {globalName} <span className={`${hover ? 'text-[#949ba4]' : 'text-transparent'} text-xs`}>{userName}</span>
         </p>
         <p className="text-[#949ba4] text-xs">{userState}</p>
       </div>
@@ -50,18 +44,15 @@ export default function UserItem({ status, avatar, uid, globalName, userName }: 
           id="message"
           icon={<BiSolidMessage />}
           className={['bg-[#2b2d31] rounded-full hover:text-[#f2f4f7] w-9 h-9']}
+          tooltipMessage="Message"
+          tooltipPosition="top"
         />
         <NavButton
           id="menu"
           icon={<CiMenuKebab />}
           className={['bg-[#2b2d31] rounded-full hover:text-[#f2f4f7] w-9 h-9']}
-        />
-        <NavButton
-          id="md"
-          className={['rounded-md']}
-          title="BLOQUEADO"
-          tooltipMessage="Nuevo grupo de MD"
-          tooltipPosition="right"
+          tooltipMessage="Mas"
+          tooltipPosition="top"
         />
       </div>
     </Link>

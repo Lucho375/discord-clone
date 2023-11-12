@@ -13,7 +13,7 @@ export default function ToolBar() {
         className={[...buttonHoverClass, 'rounded-md']}
         icon={<MdMarkChatUnread />}
         tooltipMessage="Nuevo grupo de MD"
-        tooltipPosition="right"
+        tooltipPosition="bottom"
       />
       <Divider orientation="v" size="h-[50%]" />
       <NavButton
