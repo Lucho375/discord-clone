@@ -5,6 +5,7 @@ import { BiSolidMessage } from 'react-icons/bi'
 import { CiMenuKebab } from 'react-icons/ci'
 import NavButton from './navigationbutton'
 import { useRouter } from 'next/navigation'
+import Icon from './Icon'
 interface IListItemProps {
   status?: 'en linea' | 'ausente' | 'no molestar' | 'invisible'
   avatar?: string
@@ -58,6 +59,7 @@ const UserItem = ({ status = 'invisible', avatar = '', uid = '', globalName = ''
           icon={<CiMenuKebab />}
           className={['bg-[#2b2d31] rounded-full hover:text-[#f2f4f7] w-9 h-9']}
         />
+        <Icon />
       </div>
     </a>
   )
