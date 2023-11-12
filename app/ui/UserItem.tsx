@@ -6,6 +6,8 @@ import { CiMenuKebab } from 'react-icons/ci'
 import NavButton from './navigationbutton'
 import Icon from './Icon'
 import Link from 'next/link'
+import { title } from 'process'
+import { MdOutlineMarkChatUnread } from 'react-icons/md'
 interface IListItemProps {
   status: 'online' | 'away' | 'do not disturb' | 'invisible'
   avatar: string
@@ -54,7 +56,13 @@ export default function UserItem({ status, avatar, uid, globalName, userName }: 
           icon={<CiMenuKebab />}
           className={['bg-[#2b2d31] rounded-full hover:text-[#f2f4f7] w-9 h-9']}
         />
-        <Icon />
+        <NavButton
+          id="md"
+          className={['rounded-md']}
+          title="BLOQUEADO"
+          tooltipMessage="Nuevo grupo de MD"
+          tooltipPosition="right"
+        />
       </div>
     </Link>
   )

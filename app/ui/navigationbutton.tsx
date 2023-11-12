@@ -1,5 +1,6 @@
 'use client'
-import { ReactElement } from 'react'
+import { ReactElement, useState, useRef } from 'react'
+import ToolTip from './ToolTip'
 
 export interface INavButton {
   size?: ISize
@@ -9,6 +10,8 @@ export interface INavButton {
   icon?: ReactElement
   id: string
   hover?: boolean
+  tooltipMessage?: string
+  tooltipPosition?: 'top' | 'bottom' | 'left' | 'right'
 }
 
 interface ISize {
@@ -16,11 +19,14 @@ interface ISize {
   height: number
 }
 
-const defaultStyle = ['h-[30px]', 'flex', 'justify-center', 'items-center', 'px-[5px]']
+const defaultStyle = ['h-[30px]', 'flex', 'justify-center', 'items-center', 'px-[5px]', 'relative']
 
 const hover = 'hover:bg-[#3b3d44] hover:text-[#f2f4f7]'
 
 export default function NavButton(props: INavButton) {
+  const [onHover, setHover] = useState(true)
+  const buttonRef = useRef<HTMLDivElement>(null)
+
   function onClic() {
     if (props.onClick) {
       props.onClick(props.id)
@@ -28,11 +34,19 @@ export default function NavButton(props: INavButton) {
   }
 
   return (
-    <div className={`${defaultStyle.join(' ')} ${props?.className?.join(' ')} ${props.hover ? hover : null}`}>
-      <button id={props.id} onClick={onClic}>
+    <div
+      ref={buttonRef}
+      className={`${defaultStyle.join(' ')} ${props?.className?.join(' ')} ${props.hover ? hover : null}`}
+    >
+      <button id={props.id} onClick={onClic} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {props.icon}
         {props.title}
       </button>
+      {props.tooltipMessage ? (
+        onHover ? (
+          <ToolTip text={props.tooltipMessage} position={props.tooltipPosition} componentRef={buttonRef} />
+        ) : null
+      ) : null}
     </div>
   )
 }

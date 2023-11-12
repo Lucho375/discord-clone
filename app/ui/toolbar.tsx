@@ -8,10 +8,28 @@ export default function ToolBar() {
   const buttonHoverClass = ['hover:bg-[#3b3d44]', 'hover:text-[#f2f4f7]']
   return (
     <section className={toolbarClass.join(' ')}>
-      <NavButton id="md" className={[...buttonHoverClass, 'rounded-md']} icon={<MdMarkChatUnread />} />
+      <NavButton
+        id="md"
+        className={[...buttonHoverClass, 'rounded-md']}
+        icon={<MdMarkChatUnread />}
+        tooltipMessage="Nuevo grupo de MD"
+        tooltipPosition="right"
+      />
       <Divider orientation="v" size="h-[50%]" />
-      <NavButton id="be" className={[...buttonHoverClass, 'rounded-md']} icon={<MdInbox />} />
-      <NavButton id="hp" className={[...buttonHoverClass, 'rounded-md']} icon={<MdOutlineHelp />} />
+      <NavButton
+        id="be"
+        className={[...buttonHoverClass, 'rounded-md']}
+        icon={<MdInbox />}
+        tooltipMessage="Bandeja de entrada"
+        tooltipPosition="bottom"
+      />
+      <NavButton
+        id="hp"
+        className={[...buttonHoverClass, 'rounded-md']}
+        icon={<MdOutlineHelp />}
+        tooltipMessage="Ayuda"
+        tooltipPosition="bottom"
+      />
     </section>
   )
 }
