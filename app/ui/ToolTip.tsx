@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useEffect } from 'react'
+import { ReactElement } from 'react'
 interface IToolTipProps {
   text?: string
   position?: 'top' | 'bottom' | 'left' | 'right'
@@ -15,9 +15,11 @@ export default function ToolTip({
 }: IToolTipProps) {
   const parentHeight = componentRef.current?.offsetHeight ?? 10
   const parentWidth = componentRef.current?.offsetWidth ?? 10
+  const topPosition = parentHeight - 30 > 0 ? parentHeight / 2 - 15 : parentHeight / 2 - 30 / 2
+
   const sidePosition: { [key: string]: object } = {
-    left: { right: `${Math.round(parentWidth + 10)}px`, top: `${Math.round(parentHeight / 4)}px` },
-    right: { left: `${Math.round(parentWidth + 10)}px`, top: `${Math.round(parentHeight / 4)}px` },
+    left: { right: `${Math.round(parentWidth + 10)}px`, top: `${topPosition}px` },
+    right: { left: `${Math.round(parentWidth + 10)}px`, top: `${topPosition}px` },
     top: { top: `-${parentHeight + 8}px` },
     bottom: { bottom: `-${parentHeight + 8}px` }
   }
