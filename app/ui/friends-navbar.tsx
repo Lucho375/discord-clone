@@ -4,7 +4,7 @@ import { FaUserFriends } from 'react-icons/fa'
 import Divider from './Divider'
 import NavButton, { INavButton } from './navigationbutton'
 import ToolBar from './toolbar'
-
+import { MdInbox, MdMarkChatUnread, MdOutlineHelp } from 'react-icons/md'
 interface INavbarProps {
   selectedScreen(screen: string): void
 }
@@ -42,7 +42,29 @@ export default function NavBar(props: INavbarProps) {
       className: ['bg-[#248046]', 'text-white', 'rounded-md']
     }
   ]
-
+  const toolbarButtons: INavButton[] = [
+    {
+      id: 'md',
+      className: [...buttonHoverClass, 'rounded-md'],
+      icon: <MdMarkChatUnread />,
+      tooltipMessage: 'Nuevo grupo de MD',
+      tooltipPosition: 'bottom'
+    },
+    {
+      id: 'be',
+      className: [...buttonHoverClass, 'rounded-md'],
+      icon: <MdInbox />,
+      tooltipMessage: 'Bandeja de entrada',
+      tooltipPosition: 'bottom'
+    },
+    {
+      id: 'hp',
+      className: [...buttonHoverClass, 'rounded-md'],
+      icon: <MdOutlineHelp />,
+      tooltipMessage: 'Ayuda',
+      tooltipPosition: 'bottom'
+    }
+  ]
   function selectedScreen(screen: string) {
     props.selectedScreen(screen)
     const buttonIndex = navButtons.findIndex(btn => btn.id === screen)
@@ -100,7 +122,7 @@ export default function NavBar(props: INavbarProps) {
           className={button.className}
         />
       ))}
-      <ToolBar />
+      <ToolBar navButton={toolbarButtons} className="ml-auto" />
     </section>
   )
 }

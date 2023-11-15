@@ -1,35 +1,25 @@
-import { MdInbox, MdMarkChatUnread, MdOutlineHelp } from 'react-icons/md'
-import NavButton from './navigationbutton'
-import Divider from './Divider'
+import NavButton, { INavButton } from './navigationbutton'
 
-export default function ToolBar() {
-  const toolbarClass = ['flex', 'h-[100%]', 'justify-evenly', 'items-center', 'ml-auto', 'mr-[20px]', 'gap-[10px]']
+interface IToolBarProps {
+  navButton: INavButton[]
+  className?: string
+  children?: React.ReactNode
+}
 
-  const buttonHoverClass = ['hover:bg-[#3b3d44]', 'hover:text-[#f2f4f7]']
+export default function ToolBar(props: IToolBarProps) {
   return (
-    <section className={toolbarClass.join(' ')}>
-      <NavButton
-        id="md"
-        className={[...buttonHoverClass, 'rounded-md']}
-        icon={<MdMarkChatUnread />}
-        tooltipMessage="Nuevo grupo de MD"
-        tooltipPosition="bottom"
-      />
-      <Divider orientation="v" size="h-[50%]" />
-      <NavButton
-        id="be"
-        className={[...buttonHoverClass, 'rounded-md']}
-        icon={<MdInbox />}
-        tooltipMessage="Bandeja de entrada"
-        tooltipPosition="bottom"
-      />
-      <NavButton
-        id="hp"
-        className={[...buttonHoverClass, 'rounded-md']}
-        icon={<MdOutlineHelp />}
-        tooltipMessage="Ayuda"
-        tooltipPosition="bottom"
-      />
+    <section className={`flex h-full justify-evenly items-center mr-5 gap-3 ${props.className}`}>
+      {props.navButton.map((button, key) => (
+        <NavButton
+          key={button.id}
+          id={button.id}
+          className={button.className}
+          icon={button.icon}
+          tooltipMessage={button.tooltipMessage}
+          tooltipPosition={button.tooltipPosition}
+        />
+      ))}
+      {props.children}
     </section>
   )
 }
