@@ -4,7 +4,7 @@ interface Params {
 
 function Conversation({ params }: Params) {
   return (
-    <section className="max-h-screen overflow-y-scroll w-full flex flex-col">
+    <section className="max-h-screen overflow-y-scroll w-full flex flex-col bg-background-100">
       <section>
         <h1>Conversation {params.conversation}</h1>
       </section>
