@@ -6,16 +6,6 @@ import { ReactElement, useState } from 'react'
 interface Screen {
   [key: string]: ReactElement
 }
-const mainPageStyle = [
-  'bg-[#313338]',
-  'w-[100%]',
-  'h-[100vh]',
-  'flex',
-  'flex-col',
-  'justify-start',
-  'items-center',
-  'pt-[5px]'
-]
 
 const Friends = () => {
   const [currentScreen, setCurrentScreen] = useState('screen-1')
@@ -40,7 +30,7 @@ const Friends = () => {
   }
 
   return (
-    <div className={mainPageStyle.join(' ')}>
+    <div className="bg-[#313338] w-[100%] h-[100vh] flex flex-col justify-start items-center pt-[5px]">
       <NavBar selectedScreen={setCurrentScreen} />
       {screens[currentScreen]}
     </div>

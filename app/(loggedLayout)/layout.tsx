@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${inter.className} flex min-h-screen bg-black text-white`}>
+    <section className={`${inter.className} flex min-h-screen bg-black text-white`}>
       <Sidebar />
       <main className="bg-slate-700 flex-1">{children}</main>
-    </div>
+    </section>
   )
 }

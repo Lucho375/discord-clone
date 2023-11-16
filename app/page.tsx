@@ -13,7 +13,6 @@ export default function Home() {
       setUser(false)
       router.push('/friends')
     }, 3000)
-
     return () => clearTimeout(timeout)
   }, [router])
 
