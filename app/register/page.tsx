@@ -52,7 +52,7 @@ export default function RegisterPage() {
             Continuar
           </button>
 
-          <Link href={'/register'} className="hover:underline text-blue-500 text-xs">
+          <Link href={'/login'} className="hover:underline text-blue-500 text-xs">
             ¿Ya tienes una cuenta?
           </Link>
         </div>
