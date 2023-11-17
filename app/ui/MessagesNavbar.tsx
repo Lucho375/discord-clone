@@ -8,7 +8,7 @@ import ToolBar from './toolbar'
 import { INavButton } from './navigationbutton'
 import Input from './Input'
 import Image from 'next/image'
-import { ReactElement, useRef, useState } from 'react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import ToolTip from './ToolTip'
 
@@ -81,6 +81,7 @@ export default function MessagesNavbar({ user }: IMessageNavbar) {
       tooltipPosition: 'bottom'
     }
   ]
+
   return (
     <nav className="w-[100%] h-[48px] flex justify-end items-center gap-3 border-b-[1px] border-b-solid border-[#1f2124] pl-5">
       <div className="flex justify-center items-center h-full mr-auto">
@@ -102,11 +103,13 @@ export default function MessagesNavbar({ user }: IMessageNavbar) {
         </p>
       </div>
       <ToolBar navButton={toolbarLeft} className="gap-[5px] mr-0" />
-      <Input
-        placeHolder="Buscar"
-        className={['w-[130px]', 'h-[30px]', 'bg-[#1e1f22]', 'active: border-none', 'rounded-md', 'px-1']}
-        icon={<BiSearch />}
-      />
+      <div className={`w-[130px] h-full flex justify-center items-center`}>
+        <Input
+          placeHolder="Buscar"
+          className={['w-full', 'h-[30px]', 'bg-[#1e1f22]', 'active: border-none', 'rounded-md', 'px-1']}
+          icon={<BiSearch />}
+        />
+      </div>
       <ToolBar navButton={toolbarRight} />
     </nav>
   )
