@@ -15,7 +15,7 @@ export default function BottomBar({ userName }: IBottomProps) {
     <div className="w-full h-10 flex justify-center items-center rounded-md bg-[#383a40] px-4 sticky self-end">
       <NavButton id="add" icon={<FaCirclePlus size="1.5rem" color={`${hover ? '#f2f4f7' : '#b5bac1'}`} />} hover />
       <Input
-        className={['w-full', 'bg-background-100', 'h-full', 'text-[#b5bac1]', 'text-sm']}
+        className={['w-full', 'bg-[#383a40]', 'h-full', 'text-[#b5bac1]', 'text-sm', 'ml-1']}
         placeHolder={`Enviar mensaje a ${userName}`}
       />
       <NavButton
