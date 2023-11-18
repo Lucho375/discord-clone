@@ -1,15 +1,16 @@
+import BottomBar from '@/app/ui/MessagesBottomBar'
+
 interface Params {
   params: { conversation: string }
 }
 
 function Conversation({ params }: Params) {
   return (
-    <section className="max-h-screen overflow-y-scroll w-full flex flex-col">
-      <section>
+    <section className="h-full w-full flex flex-col bg-background-100 justify-start items-center px-5">
+      <section className="h-[90%] overflow-y-scroll w-full">
         <h1>Conversation {params.conversation}</h1>
       </section>
-
-      <input type="text" name="message" id="message" placeholder="Enviar mensaje a @Username" />
+      <BottomBar userName="Lucho" />
     </section>
   )
 }

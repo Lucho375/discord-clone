@@ -41,7 +41,7 @@ function DirectMessages() {
 
   return (
     <section>
-      <div className="flex justify-between max-w-[200px] mx-auto">
+      <div className="flex justify-between max-w-[200px] mx-auto ">
         <h2 className="text-gray-400 hover:text-white text-xs uppercase">Mensajes Directos</h2>
         <AiOutlinePlus className="hover:text-white text-gray-300 hover:cursor-pointer" />
       </div>

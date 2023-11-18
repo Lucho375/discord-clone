@@ -12,6 +12,17 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'register-page': "url('/registerBackround.png')"
+      },
+      colors: {
+        background: {
+          100: '#313338',
+          200: '#2b2d31',
+          300: '#1e1f22'
+        },
+        text: {
+          primary: '#949ba4',
+          secondary: '#f2f3f5'
+        }
       }
     }
   },
