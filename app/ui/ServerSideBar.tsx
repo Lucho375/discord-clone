@@ -4,10 +4,10 @@ import { RiArrowDropDownLine, RiCloseFill } from 'react-icons/ri'
 import ServerSettings from '../ui/ServerSettings'
 
 export default function ServerSideBar() {
-  const [visible, setVIsible] = useState<boolean>(false)
+  const [visible, setVisible] = useState<boolean>(false)
 
   const dropDownSettings = () => {
-    setVIsible(!visible)
+    setVisible(!visible)
   }
 
   return (

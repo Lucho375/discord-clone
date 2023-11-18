@@ -56,18 +56,3 @@ export default function NavButton(props: INavButton) {
     </div>
   )
 }
-
-// className={props.class?.join(" ") ?? containerClass.join(" ")}
-
-/*
-{props.tooltipMessage ? (
-        onHover ? (
-          <ToolTip
-            text={props.tooltipMessage}
-            position={props.tooltipPosition}
-            componentRef={buttonRef}
-            width={`left-[${buttonRef.current?.offsetWidth?.toString().split(' ')}px]`}
-          />
-        ) : null
-      ) : null}
-*/

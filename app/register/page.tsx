@@ -5,6 +5,16 @@ import { FormEvent } from 'react'
 export default function RegisterPage() {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    try {
+      const formData = new FormData(event.currentTarget as HTMLFormElement)
+      const formValues: { [key: string]: string } = {}
+      formData.forEach((value, key) => {
+        formValues[key] = value as string
+      })
+      console.log(formValues)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -24,14 +34,14 @@ export default function RegisterPage() {
             <label htmlFor="password" className="mb-2">
               MOSTRAR NOMBRE
             </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="password" name="password" id="password" />
+            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="text" name="displayName" id="displayName" />
           </div>
 
           <div className="flex flex-col my-4 text-xs">
             <label htmlFor="password" className="mb-2">
               NOMBRE DE USUARIO <span className="text-red-700">*</span>
             </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="password" name="password" id="password" />
+            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="text" name="userName" id="userName" />
           </div>
 
           <div className="flex flex-col my-4 text-xs">
@@ -45,7 +55,7 @@ export default function RegisterPage() {
             <label htmlFor="password" className="mb-2">
               FECHA DE NACIMIENTO <span className="text-red-700">*</span>
             </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="password" name="password" id="password" />
+            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="date" name="dateBirth" id="dateBirth" />
           </div>
 
           <button className="bg-blue-700 w-full p-2 rounded mb-2 hover:bg-blue-800 transition-all" type="submit">
