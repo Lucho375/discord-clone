@@ -35,7 +35,7 @@ export default function OnlineFriends() {
           icon={<BiSearch />}
         />
         <h6 className="text-[#949ba4] pt-8 text-xs mb-4">CONECTADO - 3</h6>
-        {getUsers(8).map(user => (
+        {getUsers(3).map(user => (
           <UserItem
             key={user.uid}
             status={user.status}
