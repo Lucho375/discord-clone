@@ -45,21 +45,21 @@ export default function NavBar(props: INavbarProps) {
   const toolbarButtons: INavButton[] = [
     {
       id: 'md',
-      className: [...buttonHoverClass, 'rounded-md'],
+      className: ['hover:text-[#f2f4f7]', 'text-[#949ba4]', 'rounded-md'],
       icon: <MdMarkChatUnread />,
       tooltipMessage: 'Nuevo grupo de MD',
       tooltipPosition: 'bottom'
     },
     {
       id: 'be',
-      className: [...buttonHoverClass, 'rounded-md'],
+      className: ['hover:text-[#f2f4f7]', 'text-[#949ba4]', 'rounded-md'],
       icon: <MdInbox />,
       tooltipMessage: 'Bandeja de entrada',
       tooltipPosition: 'bottom'
     },
     {
       id: 'hp',
-      className: [...buttonHoverClass, 'rounded-md'],
+      className: ['hover:text-[#f2f4f7]', 'text-[#949ba4]', 'rounded-md'],
       icon: <MdOutlineHelp />,
       tooltipMessage: 'Ayuda',
       tooltipPosition: 'bottom'

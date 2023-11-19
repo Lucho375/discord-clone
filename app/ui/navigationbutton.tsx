@@ -20,10 +20,6 @@ interface ISize {
   height: number
 }
 
-const defaultStyle = ['h-[30px]', 'flex', 'justify-center', 'items-center', 'px-[5px]', 'relative']
-
-const hover = 'hover:bg-[#3b3d44] hover:text-[#f2f4f7]'
-
 export default function NavButton(props: INavButton) {
   const [onHover, setHover] = useState(false)
   const buttonRef = useRef<HTMLDivElement>(null)
@@ -35,11 +31,16 @@ export default function NavButton(props: INavButton) {
   }
 
   return (
-    <div
-      ref={buttonRef}
-      className={`${defaultStyle.join(' ')} ${props?.className?.join(' ')} ${props.hover ? hover : null}`}
-    >
-      <button id={props.id} onClick={onClic} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div ref={buttonRef} className="w-auto h-auto flex justify-center items-center relative">
+      <button
+        id={props.id}
+        onClick={onClic}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className={`h-[30px] flex justify-center items-center px-2 ${props?.className?.join(' ')} ${
+          props.hover ? 'hover:bg-[#3b3d44] hover:text-[#f2f4f7]' : null
+        }`}
+      >
         {props.icon}
         {props.title}
       </button>
@@ -56,3 +57,38 @@ export default function NavButton(props: INavButton) {
     </div>
   )
 }
+
+/*
+
+  return (
+    <div
+      ref={buttonRef}
+      className={`h-[30px] flex justify-center items-center px-2 relative ${props?.className?.join(' ')} ${
+        props.hover ? 'hover:bg-[#3b3d44] hover:text-[#f2f4f7]' : null
+      }`}
+    >
+      <button
+        id={props.id}
+        onClick={onClic}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className={`h-[30px] flex justify-center items-center px-2 relative ${props?.className?.join(' ')} ${
+          props.hover ? 'hover:bg-[#3b3d44] hover:text-[#f2f4f7]' : null
+        }`}
+      >
+        {props.icon}
+        {props.title}
+      </button>
+
+      {props.tooltipMessage ? (
+        <ToolTip
+          text={props.tooltipMessage}
+          position={props.tooltipPosition}
+          componentRef={buttonRef}
+          visibility={onHover}
+          icon={props.tooltipIcon}
+        />
+      ) : null}
+    </div>
+  )
+  */
