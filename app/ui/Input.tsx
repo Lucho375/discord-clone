@@ -10,9 +10,9 @@ interface IInputProps {
 
 export default function Input({ placeHolder = 'Buscar', className = [], icon, type = 'text', id }: IInputProps) {
   return (
-    <div className={`flex justify-start bg-background-300 active:border-none px-1 ${className.join(' ')}`}>
+    <div className={`${className.join(' ')} flex justify-start active:border-none px-1 `}>
       <input
-        className={`w-full h-full bg-background-300 outline-none ${className.join(' ')}`}
+        className={`${className.join(' ')} w-full h-full outline-none `}
         type={type}
         id={id}
         placeholder={placeHolder}
