@@ -26,41 +26,40 @@ interface IMessageNavbar {
 export default function MessagesNavbar({ user }: IMessageNavbar) {
   const userNameRef = useRef(null)
   const [hover, setHover] = useState(false)
-  const buttonHoverClass = ['hover:bg-[#3b3d44]', 'hover:text-[#f2f4f7]']
-
+  const iconSize = '1.5rem'
   const toolbarLeft: INavButton[] = [
     {
       id: 'voice call',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <BiSolidPhoneCall />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <BiSolidPhoneCall size={iconSize} />,
       tooltipMessage: 'Iniciar llamada de voz',
       tooltipPosition: 'bottom'
     },
     {
       id: 'video call',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <BiSolidVideo />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <BiSolidVideo size={iconSize} />,
       tooltipMessage: 'Iniciar videollamada',
       tooltipPosition: 'bottom'
     },
     {
       id: 'pin messages',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <RiPushpinFill />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <RiPushpinFill size={iconSize} />,
       tooltipMessage: 'Mensajes fijados',
       tooltipPosition: 'bottom'
     },
     {
       id: 'add friend',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <BsPersonPlusFill />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <BsPersonPlusFill size={iconSize} />,
       tooltipMessage: 'Añadir amigos a MD',
       tooltipPosition: 'bottom'
     },
     {
       id: 'user profile',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <FaCircleUser />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <FaCircleUser size={iconSize} />,
       tooltipMessage: 'Ocultar perfil del usuario',
       tooltipPosition: 'bottom'
     }
@@ -68,22 +67,22 @@ export default function MessagesNavbar({ user }: IMessageNavbar) {
   const toolbarRight: INavButton[] = [
     {
       id: 'inbox',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <MdInbox />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <MdInbox size={iconSize} />,
       tooltipMessage: 'Bandeja de entrada',
       tooltipPosition: 'bottom'
     },
     {
       id: 'help',
-      className: [...buttonHoverClass, 'rounded-md', 'text-[#949ba4]'],
-      icon: <MdOutlineHelp />,
+      className: ['hover:text-[#f2f4f7]', 'rounded-md', 'text-[#949ba4]'],
+      icon: <MdOutlineHelp size={iconSize} />,
       tooltipMessage: 'Ayuda',
       tooltipPosition: 'bottom'
     }
   ]
 
   return (
-    <nav className="w-[100%] h-[48px] flex justify-end items-center gap-3 border-b-[1px] border-b-solid border-[#1f2124] pl-5">
+    <nav className="w-[100%] h-[45px] flex justify-end items-center border-b-[1px] border-b-solid border-[#1f2124] pl-5 py-1">
       <div className="flex justify-center items-center h-full mr-auto">
         <Image
           src={user.avatar ?? ''}
@@ -102,7 +101,7 @@ export default function MessagesNavbar({ user }: IMessageNavbar) {
           <ToolTip componentRef={userNameRef} visibility={hover} position="bottom" text={user.globalName} />
         </p>
       </div>
-      <ToolBar navButton={toolbarLeft} className="gap-[5px] mr-0" />
+      <ToolBar navButton={toolbarLeft} className="gap-0 mr-0" />
       <div className={`w-[130px] h-full flex justify-center items-center`}>
         <Input
           placeHolder="Buscar"
