@@ -27,7 +27,7 @@ export default function TopBar() {
       <div className="w-full h-12 flex justify-center items-center border-b border-solid border-[#1f2124]">
         <Input
           placeHolder="Busca o inicia una conversación"
-          className={['w-[95%]', 'h-7', 'rounded-md', 'text-xs', 'pl-2']}
+          className={['w-[95%]', 'h-7', 'rounded-md', 'text-xs', 'pl-2', 'bg-background-300']}
         />
       </div>
       {buttonsLinks.map(({ href, icon, title }, i) => (
