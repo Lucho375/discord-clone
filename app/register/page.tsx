@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { FormEvent } from 'react'
+import FormInput from '../ui/FormInput'
 
 export default function RegisterPage() {
   const handleSubmit = async (event: FormEvent) => {
@@ -22,41 +23,11 @@ export default function RegisterPage() {
       <form onSubmit={handleSubmit} className="flex bg-slate-800 p-8 max-w-3xl">
         <div>
           <h1 className="text-center text-xl mb-8">Crear una cuenta</h1>
-
-          <div className="flex flex-col my-4 text-xs">
-            <label htmlFor="email" className="mb-2">
-              CORREO ELECTRONICO <span className="text-red-700">*</span>
-            </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="text" name="email" id="email" />
-          </div>
-
-          <div className="flex flex-col my-4 text-xs">
-            <label htmlFor="password" className="mb-2">
-              MOSTRAR NOMBRE
-            </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="text" name="displayName" id="displayName" />
-          </div>
-
-          <div className="flex flex-col my-4 text-xs">
-            <label htmlFor="password" className="mb-2">
-              NOMBRE DE USUARIO <span className="text-red-700">*</span>
-            </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="text" name="userName" id="userName" />
-          </div>
-
-          <div className="flex flex-col my-4 text-xs">
-            <label htmlFor="password" className="mb-2">
-              CONTRASEÑA <span className="text-red-700">*</span>
-            </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="password" name="password" id="password" />
-          </div>
-
-          <div className="flex flex-col my-4 text-xs">
-            <label htmlFor="password" className="mb-2">
-              FECHA DE NACIMIENTO <span className="text-red-700">*</span>
-            </label>
-            <input className="bg-slate-900 p-2 w-[400px] outline-0" type="date" name="dateBirth" id="dateBirth" />
-          </div>
+          <FormInput type="text" name="email" label="CORREO ELECTRONICO" required />
+          <FormInput type="text" name="displayName" label="MOSTRAR NOMBRE" />
+          <FormInput type="text" name="userName" label="NOMBRE DE USUARIO" required />
+          <FormInput type="password" name="password" label="CONTRASEÑA" required />
+          <FormInput type="date" name="birthDate" label="FECHA DE NACIMIENTO" required />
 
           <button className="bg-blue-700 w-full p-2 rounded mb-2 hover:bg-blue-800 transition-all" type="submit">
             Continuar
